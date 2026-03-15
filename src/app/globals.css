@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top, rgba(93, 139, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 20% 20%, rgba(255, 90, 138, 0.18), transparent 22%),
+    linear-gradient(180deg, #040712 0%, #081020 45%, #050816 100%);
+  color: #f8f4ec;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background: url("/assets/images/dark-bg.webp") center/cover no-repeat;
+  opacity: 0.18;
+}
+
+::selection {
+  background: rgba(93, 139, 255, 0.28);
+  color: #ffffff;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.glass-card {
+  @apply rounded-[28px] border border-line bg-panel/90 shadow-card backdrop-blur-xl;
+}
+
+.section-kicker {
+  @apply inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-cyan;
+}
+
+.section-title {
+  font-family: var(--font-display), cursive;
+  @apply text-4xl font-medium text-sand sm:text-5xl;
+}
+
+.gradient-text {
+  @apply bg-brand-gradient bg-clip-text text-transparent;
+}
+
+.soft-text {
+  @apply text-sm leading-7 text-white/70 sm:text-base;
+}
