@@ -71,7 +71,7 @@ export default function HomePage() {
       <section id="hero" className="section-shell relative overflow-hidden py-20 sm:py-24 lg:py-28">
         <div className="absolute inset-x-0 top-10 -z-10 h-72 rounded-full bg-blue/20 blur-3xl" />
         <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="space-y-8" data-aos="fade-up">
+          <div className="space-y-8" data-aos="fade">
             <span className="section-kicker">{heroContent.badge}</span>
             <div className="space-y-5">
               <p className="text-lg text-white/75 sm:text-xl">{heroContent.greeting}</p>
@@ -105,7 +105,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-md" data-aos="fade-left">
+          <div className="relative mx-auto w-full max-w-md" data-aos="fade">
             <div className="glass-card relative overflow-hidden p-4">
               <div className="absolute inset-0 bg-hero-radial" />
               <div className="relative rounded-[24px] border border-white/10 bg-white/5 p-4">
@@ -138,15 +138,13 @@ export default function HomePage() {
           description="The parts of creative work that keep me curious and energized."
           align="center"
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-3" data-aos="fade">
           {interests.map((item, index) => {
             const Icon = item.icon;
             return (
               <article
                 key={item.title}
                 className="glass-card p-8"
-                data-aos="fade-up"
-                data-aos-delay={index * 120}
               >
                 <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-gradient text-2xl text-white">
                   <Icon />
@@ -160,8 +158,8 @@ export default function HomePage() {
       </section>
 
       <section id="about" className="section-shell py-16 sm:py-20">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative" data-aos="fade-right">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]" data-aos="fade">
+          <div className="relative">
             <div className="absolute -left-5 -top-5 h-40 w-40 rounded-[32px] border border-rose/50" />
             <div className="absolute -bottom-5 -right-5 h-40 w-40 rounded-[32px] border border-blue/50" />
             <div className="glass-card relative overflow-hidden p-4">
@@ -174,7 +172,7 @@ export default function HomePage() {
               />
             </div>
           </div>
-          <div className="space-y-6" data-aos="fade-left">
+          <div className="space-y-6">
             <SectionHeading
               kicker={aboutContent.eyebrow}
               title={aboutContent.title}
@@ -207,13 +205,11 @@ export default function HomePage() {
           description="Technologies that are part of my current stack and daily workflow."
           align="center"
         />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6" data-aos="fade">
           {skills.map((skill, index) => (
             <div
               key={skill.name}
               className="glass-card flex flex-col items-center gap-4 px-4 py-6 text-center"
-              data-aos="zoom-in"
-              data-aos-delay={(index % 6) * 60}
             >
               <Image src={skill.image} alt={skill.name} width={72} height={72} className="h-[72px] w-[72px]" />
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
@@ -231,13 +227,11 @@ export default function HomePage() {
           description="A few of the tools that support my design, coding, and shipping workflow."
           align="center"
         />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6" data-aos="fade">
           {tools.map((tool, index) => (
             <div
               key={tool.name}
               className="glass-card flex flex-col items-center gap-4 px-4 py-6 text-center"
-              data-aos="zoom-in-up"
-              data-aos-delay={(index % 6) * 70}
             >
               <Image src={tool.image} alt={tool.name} width={72} height={72} className="h-[72px] w-[72px]" />
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
@@ -255,13 +249,11 @@ export default function HomePage() {
           description="A few portfolio highlights that reflect client work, product thinking, and full-stack execution."
           align="center"
         />
-        <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-3" data-aos="fade">
           {projects.map((project, index) => (
             <article
               key={project.name}
               className="glass-card overflow-hidden"
-              data-aos="fade-up"
-              data-aos-delay={(index % 3) * 120}
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -310,13 +302,11 @@ export default function HomePage() {
           description="Feedback from collaborators, friends, and people who have worked with me."
           align="center"
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2" data-aos="fade">
           {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.name}
               className="glass-card p-8"
-              data-aos="fade-up"
-              data-aos-delay={index * 110}
             >
               <p className="text-base leading-8 text-white/76">&quot;{testimonial.quote}&quot;</p>
               <div className="mt-8 flex items-center gap-4">
@@ -338,8 +328,8 @@ export default function HomePage() {
       </section>
 
       <section id="contact" className="section-shell py-16 sm:py-20">
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="space-y-6" data-aos="fade-right">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]" data-aos="fade">
+          <div className="space-y-6">
             <SectionHeading
               kicker="What's next"
               title="Get In Touch"
@@ -363,7 +353,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="glass-card p-6 sm:p-8" data-aos="fade-left">
+          <div className="glass-card p-6 sm:p-8">
             <form action={contactForm.action} method="POST" className="grid gap-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <input

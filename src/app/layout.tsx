@@ -32,7 +32,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${agustina.variable} ${dancingScript.variable}`}>
       <body>
-        <AosProvider>{children}</AosProvider>
+        <AosProvider />
+        {children}
       </body>
     </html>
   );

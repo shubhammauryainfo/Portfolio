@@ -71,3 +71,19 @@ body::after {
 .soft-text {
   @apply text-sm leading-7 text-white/70 sm:text-base;
 }
+
+[data-aos] {
+  pointer-events: auto;
+}
+
+[data-aos^="fade"] {
+  transform: none !important;
+}
+
+[data-aos^="fade"]:not(.aos-animate) {
+  opacity: 0;
+}
+
+[data-aos^="fade"].aos-animate {
+  opacity: 1;
+}

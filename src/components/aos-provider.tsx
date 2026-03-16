@@ -1,22 +1,21 @@
 "use client";
 
 import { useEffect } from "react";
-import type { ReactNode } from "react";
 import AOS from "aos";
 
-type AosProviderProps = {
-  children: ReactNode;
-};
-
-export function AosProvider({ children }: AosProviderProps) {
+export function AosProvider() {
   useEffect(() => {
+    if (window.innerWidth < 768) {
+      return;
+    }
+
     AOS.init({
-      duration: 800,
-      easing: "ease-out-cubic",
+      duration: 500,
+      easing: "ease-out",
       once: true,
-      offset: 60
+      offset: 24
     });
   }, []);
 
-  return children;
+  return null;
 }
