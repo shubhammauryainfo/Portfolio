@@ -54,7 +54,7 @@ function IconLink({ href, label, Icon }: IconLinkProps) {
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition hover:-translate-y-1 hover:border-white/25 hover:bg-white/10 hover:text-white"
+      className="comic-icon-button"
     >
       <Icon />
     </a>
@@ -69,30 +69,30 @@ export default function HomePage() {
       <SiteHeader />
 
       <section id="hero" className="section-shell relative overflow-hidden py-20 sm:py-24 lg:py-28">
-        <div className="absolute inset-x-0 top-10 -z-10 h-72 rounded-full bg-blue/20 blur-3xl" />
+        <div className="absolute inset-x-0 top-10 -z-10 h-72 rounded-full bg-[color:var(--accent-cool)]/20 blur-3xl" />
         <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="space-y-8" data-aos="fade">
             <span className="section-kicker">{heroContent.badge}</span>
             <div className="space-y-5">
-              <p className="text-lg text-white/75 sm:text-xl">{heroContent.greeting}</p>
-              <h1 className="max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              <p className="text-lg text-[color:var(--text-soft)] sm:text-xl">{heroContent.greeting}</p>
+              <h1 className="max-w-3xl text-5xl font-black tracking-tight text-[color:var(--text-main)] sm:text-6xl lg:text-7xl">
                 <span className="gradient-text">{heroContent.name}</span>
               </h1>
-              <p className="max-w-2xl text-base leading-8 text-white/68 sm:text-lg">
+              <p className="max-w-2xl text-base leading-8 text-[color:var(--text-soft)] sm:text-lg">
                 {heroContent.description}
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-medium text-slate-950 transition hover:-translate-y-1"
+                className="comic-button"
               >
                 Contact Me
                 <FiMail />
               </a>
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-medium text-white transition hover:-translate-y-1 hover:bg-white/10"
+                className="comic-button-outline"
               >
                 View Portfolio
                 <FiArrowRight />
@@ -107,14 +107,14 @@ export default function HomePage() {
 
           <div className="relative mx-auto w-full max-w-md" data-aos="fade">
             <div className="glass-card relative overflow-hidden p-4">
-              <div className="absolute inset-0 bg-hero-radial" />
-              <div className="relative rounded-[24px] border border-white/10 bg-white/5 p-4">
-                <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white/55">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.6),transparent_38%),radial-gradient(circle_at_25%_20%,rgba(47,194,255,0.16),transparent_26%)]" />
+              <div className="relative rounded-[24px] border-4 border-[color:var(--ink-strong)] bg-white/20 p-4">
+                <div className="mb-4 flex items-center justify-between rounded-2xl border-4 border-[color:var(--ink-strong)] bg-[color:var(--card-alt)] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[color:var(--text-soft)]">
                   <span>frontend-developer.tsx</span>
-                  <span className="text-cyan">available</span>
+                  <span className="rounded-full bg-[color:var(--accent-main)] px-3 py-1 text-[color:var(--ink-strong)]">available</span>
                 </div>
-                <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-brand-gradient p-1">
-                  <div className="rounded-[24px] bg-[#0b1022] p-3">
+                <div className="relative overflow-hidden rounded-[28px] border-4 border-[color:var(--ink-strong)] bg-[linear-gradient(135deg,var(--accent-pop)_0%,var(--accent-alt)_38%,var(--accent-main)_72%,var(--accent-cool)_100%)] p-1">
+                  <div className="rounded-[24px] bg-[color:var(--card-alt)] p-3">
                     <Image
                       src="/assets/images/portrait.png"
                       alt="Shubham Maurya portrait"
@@ -146,10 +146,10 @@ export default function HomePage() {
                 key={item.title}
                 className="glass-card p-8"
               >
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-gradient text-2xl text-white">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border-4 border-[color:var(--ink-strong)] bg-[linear-gradient(135deg,var(--accent-pop)_0%,var(--accent-main)_75%)] text-2xl text-[color:var(--ink-strong)] shadow-[4px_4px_0_var(--shadow-accent)]">
                   <Icon />
                 </div>
-                <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
+                <h3 className="text-2xl font-black text-[color:var(--text-main)]">{item.title}</h3>
                 <p className="mt-4 soft-text">{item.description}</p>
               </article>
             );
@@ -160,8 +160,8 @@ export default function HomePage() {
       <section id="about" className="section-shell py-16 sm:py-20">
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]" data-aos="fade">
           <div className="relative">
-            <div className="absolute -left-5 -top-5 h-40 w-40 rounded-[32px] border border-rose/50" />
-            <div className="absolute -bottom-5 -right-5 h-40 w-40 rounded-[32px] border border-blue/50" />
+            <div className="absolute -left-5 -top-5 h-40 w-40 rounded-[32px] border-4 border-[color:var(--accent-pop)]/70" />
+            <div className="absolute -bottom-5 -right-5 h-40 w-40 rounded-[32px] border-4 border-[color:var(--accent-cool)]/70" />
             <div className="glass-card relative overflow-hidden p-4">
               <Image
                 src="/assets/images/portrait-2.webp"
@@ -189,7 +189,7 @@ export default function HomePage() {
               href={aboutContent.cta.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition hover:-translate-y-1 hover:bg-white/10"
+              className="comic-button-outline"
             >
               {aboutContent.cta.label}
               <FiExternalLink />
@@ -212,7 +212,7 @@ export default function HomePage() {
               className="glass-card flex flex-col items-center gap-4 px-4 py-6 text-center"
             >
               <Image src={skill.image} alt={skill.name} width={72} height={72} className="h-[72px] w-[72px]" />
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-[color:var(--text-main)]">
                 {skill.name}
               </p>
             </div>
@@ -234,7 +234,7 @@ export default function HomePage() {
               className="glass-card flex flex-col items-center gap-4 px-4 py-6 text-center"
             >
               <Image src={tool.image} alt={tool.name} width={72} height={72} className="h-[72px] w-[72px]" />
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-[color:var(--text-main)]">
                 {tool.name}
               </p>
             </div>
@@ -263,7 +263,7 @@ export default function HomePage() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   className="object-cover transition duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
               </div>
               <div className="space-y-5 p-6">
                 <div className="flex items-start gap-4">
@@ -272,11 +272,11 @@ export default function HomePage() {
                     alt={`${project.name} icon`}
                     width={56}
                     height={56}
-                    className="h-14 w-14 rounded-2xl border border-white/10 object-cover"
+                    className="h-14 w-14 rounded-2xl border-4 border-[color:var(--ink-strong)] object-cover"
                   />
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-semibold text-white">{project.name}</h3>
-                    <p className="text-xs uppercase tracking-[0.25em] text-cyan/80">{project.stack}</p>
+                    <h3 className="text-2xl font-black text-[color:var(--text-main)]">{project.name}</h3>
+                    <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--accent-pop)]">{project.stack}</p>
                   </div>
                 </div>
                 <p className="soft-text">{project.description}</p>
@@ -284,7 +284,7 @@ export default function HomePage() {
                   href={project.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-cyan"
+                  className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-[color:var(--text-main)] transition hover:text-[color:var(--accent-pop)]"
                 >
                   Visit project
                   <FiExternalLink />
@@ -308,18 +308,18 @@ export default function HomePage() {
               key={testimonial.name}
               className="glass-card p-8"
             >
-              <p className="text-base leading-8 text-white/76">&quot;{testimonial.quote}&quot;</p>
+              <p className="text-base leading-8 text-[color:var(--text-soft)]">&quot;{testimonial.quote}&quot;</p>
               <div className="mt-8 flex items-center gap-4">
                 <Image
                   src={testimonial.image}
                   alt={testimonial.name}
                   width={72}
                   height={72}
-                  className="h-16 w-16 rounded-full border border-white/10 object-cover"
+                  className="h-16 w-16 rounded-full border-4 border-[color:var(--ink-strong)] object-cover"
                 />
                 <div>
-                  <h3 className="text-lg font-semibold text-white">{testimonial.name}</h3>
-                  <p className="text-sm text-white/55">{testimonial.role}</p>
+                  <h3 className="text-lg font-black text-[color:var(--text-main)]">{testimonial.name}</h3>
+                  <p className="text-sm text-[color:var(--text-soft)]">{testimonial.role}</p>
                 </div>
               </div>
             </article>
@@ -340,12 +340,12 @@ export default function HomePage() {
                 const Icon = item.icon;
                 return (
                   <div key={item.title} className="glass-card flex items-start gap-4 p-5">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/8 text-xl text-cyan">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border-4 border-[color:var(--ink-strong)] bg-[color:var(--accent-cool)] text-xl text-[color:var(--ink-strong)] shadow-[3px_3px_0_var(--shadow-accent)]">
                       <Icon />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                      <p className="mt-1 text-sm leading-7 text-white/65">{item.text}</p>
+                      <h3 className="text-lg font-black text-[color:var(--text-main)]">{item.title}</h3>
+                      <p className="mt-1 text-sm leading-7 text-[color:var(--text-soft)]">{item.text}</p>
                     </div>
                   </div>
                 );
@@ -361,14 +361,14 @@ export default function HomePage() {
                   name="name"
                   placeholder="Name *"
                   required
-                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan"
+                  className="comic-input"
                 />
                 <input
                   type="email"
                   name="email"
                   placeholder="Email *"
                   required
-                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan"
+                  className="comic-input"
                 />
               </div>
               <input
@@ -376,14 +376,14 @@ export default function HomePage() {
                 name="subject"
                 placeholder="Subject *"
                 required
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan"
+                className="comic-input"
               />
               <textarea
                 name="message"
                 placeholder="Your message *"
                 rows={6}
                 required
-                className="rounded-[24px] border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan"
+                className="comic-input"
               />
               <input type="hidden" name="_subject" value={contactForm.subject} />
               <input type="hidden" name="_captcha" value="false" />
@@ -391,7 +391,7 @@ export default function HomePage() {
               <input type="hidden" name="_next" value={`${siteUrl}/thankyou`} />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-6 py-3 font-semibold text-slate-950 transition hover:-translate-y-1"
+                className="comic-button justify-center"
               >
                 Send Message
                 <FiMessageSquare />
@@ -402,7 +402,7 @@ export default function HomePage() {
       </section>
 
       <footer className="section-shell pt-10">
-        <div className="border-t border-white/10 py-8 text-center text-sm text-white/60">
+        <div className="border-t-4 border-[color:var(--ink-strong)] py-8 text-center text-sm font-bold uppercase tracking-[0.14em] text-[color:var(--text-soft)]">
           {footerText}
         </div>
       </footer>

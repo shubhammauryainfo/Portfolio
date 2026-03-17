@@ -11,7 +11,7 @@ export default function ThankYouPage() {
   return (
     <main className="section-shell flex min-h-screen items-center justify-center py-16">
       <section className="glass-card max-w-2xl space-y-6 p-8 text-center sm:p-12">
-        <div className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-full bg-brand-gradient text-4xl text-slate-950">
+        <div className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-full border-4 border-[color:var(--ink-strong)] bg-[color:var(--accent-main)] text-4xl text-[color:var(--ink-strong)] shadow-[4px_4px_0_var(--shadow-accent)]">
           <FiCheckCircle />
         </div>
         <div className="space-y-3">
@@ -23,7 +23,7 @@ export default function ThankYouPage() {
         </div>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition hover:-translate-y-1 hover:bg-white/10"
+          className="comic-button-outline"
         >
           <FiArrowLeft />
           Back to home

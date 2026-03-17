@@ -3,6 +3,38 @@
 @tailwind utilities;
 
 :root {
+  --bg-top: #fff8bf;
+  --bg-bottom: #ffd451;
+  --page-dot: rgba(24, 24, 24, 0.08);
+  --text-main: #1a1a15;
+  --text-soft: #4a442d;
+  --ink-strong: #18120b;
+  --panel-main: rgba(255, 249, 214, 0.94);
+  --card-alt: #fff1a8;
+  --accent-main: #ffd43b;
+  --accent-alt: #ff8f00;
+  --accent-pop: #ff5f2e;
+  --accent-cool: #2fc2ff;
+  --header-bg: #fff8cf;
+  --shadow-accent: #18120b;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --bg-top: #1e1700;
+  --bg-bottom: #0b0902;
+  --page-dot: rgba(255, 221, 110, 0.12);
+  --text-main: #fff7cf;
+  --text-soft: #d6cb94;
+  --ink-strong: #ffe37a;
+  --panel-main: rgba(28, 22, 8, 0.94);
+  --card-alt: #2d2207;
+  --accent-main: #ffcf24;
+  --accent-alt: #ff8b2c;
+  --accent-pop: #ff6d3d;
+  --accent-cool: #79d7ff;
+  --header-bg: #120f04;
+  --shadow-accent: #000000;
   color-scheme: dark;
 }
 
@@ -14,11 +46,11 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at top, rgba(93, 139, 255, 0.22), transparent 28%),
-    radial-gradient(circle at 20% 20%, rgba(255, 90, 138, 0.18), transparent 22%),
-    linear-gradient(180deg, #040712 0%, #081020 45%, #050816 100%);
-  color: #f8f4ec;
-  font-family: Arial, Helvetica, sans-serif;
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.48), transparent 22%),
+    radial-gradient(circle at 85% 15%, rgba(255, 96, 46, 0.16), transparent 16%),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  color: var(--text-main);
+  font-family: "Trebuchet MS", "Comic Sans MS", "Avenir Next", sans-serif;
 }
 
 body::before {
@@ -26,11 +58,9 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(circle at center, black, transparent 80%);
+  background-image: radial-gradient(var(--page-dot) 1.3px, transparent 1.3px);
+  background-size: 18px 18px;
+  opacity: 0.8;
 }
 
 body::after {
@@ -38,13 +68,15 @@ body::after {
   position: fixed;
   inset: 0;
   z-index: -3;
-  background: url("/assets/images/dark-bg.webp") center/cover no-repeat;
-  opacity: 0.18;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255, 95, 46, 0.2), transparent 15%),
+    radial-gradient(circle at 82% 20%, rgba(47, 194, 255, 0.22), transparent 14%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.18), transparent 18%);
 }
 
 ::selection {
-  background: rgba(93, 139, 255, 0.28);
-  color: #ffffff;
+  background: var(--accent-cool);
+  color: var(--ink-strong);
 }
 
 .section-shell {
@@ -52,24 +84,119 @@ body::after {
 }
 
 .glass-card {
-  @apply rounded-[28px] border border-line bg-panel/90 shadow-card backdrop-blur-xl;
+  background: linear-gradient(180deg, var(--panel-main) 0%, var(--card-alt) 100%);
+  border: 4px solid var(--ink-strong);
+  border-radius: 30px;
+  box-shadow: 8px 8px 0 var(--shadow-accent);
 }
 
 .section-kicker {
-  @apply inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-cyan;
+  @apply inline-flex px-4 py-1 text-xs font-black uppercase tracking-[0.28em];
+  background: var(--accent-main);
+  border: 3px solid var(--ink-strong);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--shadow-accent);
+  color: var(--ink-strong);
 }
 
 .section-title {
   font-family: var(--font-display), cursive;
-  @apply text-4xl font-medium text-sand sm:text-5xl;
+  @apply text-4xl font-medium sm:text-5xl;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 var(--accent-main);
 }
 
 .gradient-text {
-  @apply bg-brand-gradient bg-clip-text text-transparent;
+  background: linear-gradient(135deg, var(--accent-pop) 0%, var(--accent-alt) 36%, var(--accent-main) 72%, var(--accent-cool) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(3px 3px 0 rgba(24, 18, 11, 0.18));
 }
 
 .soft-text {
-  @apply text-sm leading-7 text-white/70 sm:text-base;
+  @apply text-sm leading-7 sm:text-base;
+  color: var(--text-soft);
+}
+
+.comic-button {
+  @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-black transition;
+  background: var(--accent-main);
+  border: 4px solid var(--ink-strong);
+  color: var(--ink-strong);
+  box-shadow: 5px 5px 0 var(--shadow-accent);
+}
+
+.comic-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 7px 7px 0 var(--shadow-accent);
+}
+
+.comic-button-outline {
+  @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-black transition;
+  background: var(--panel-main);
+  border: 4px solid var(--ink-strong);
+  color: var(--text-main);
+  box-shadow: 5px 5px 0 var(--shadow-accent);
+}
+
+.comic-button-outline:hover {
+  transform: translateY(-3px);
+  background: var(--accent-cool);
+  color: var(--ink-strong);
+}
+
+.comic-icon-button {
+  @apply inline-flex h-11 w-11 items-center justify-center rounded-full transition;
+  background: var(--panel-main);
+  border: 3px solid var(--ink-strong);
+  color: var(--text-main);
+  box-shadow: 4px 4px 0 var(--shadow-accent);
+}
+
+.comic-icon-button:hover {
+  transform: translateY(-3px) rotate(-6deg);
+  background: var(--accent-main);
+}
+
+.comic-input {
+  @apply rounded-[24px] px-4 py-3 outline-none transition;
+  border: 3px solid var(--ink-strong);
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--text-main);
+}
+
+.comic-input::placeholder {
+  color: color-mix(in srgb, var(--text-soft) 80%, transparent);
+}
+
+.comic-input:focus {
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-cool) 32%, transparent);
+}
+
+.comic-toggle {
+  @apply inline-flex items-center gap-2 rounded-full px-3 py-2 font-black transition;
+  border: 4px solid var(--ink-strong);
+  background: var(--panel-main);
+  color: var(--text-main);
+  box-shadow: 5px 5px 0 var(--shadow-accent);
+}
+
+.comic-toggle:hover {
+  transform: translateY(-2px) rotate(-2deg);
+}
+
+.comic-toggle__icon {
+  @apply inline-flex h-8 w-8 items-center justify-center rounded-full text-base;
+  background: var(--accent-main);
+  color: var(--ink-strong);
+  border: 2px solid var(--ink-strong);
+}
+
+.comic-toggle__label {
+  @apply text-xs uppercase tracking-[0.24em];
 }
 
 [data-aos] {
