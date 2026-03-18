@@ -3,37 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --bg-top: #fff8bf;
-  --bg-bottom: #ffd451;
-  --page-dot: rgba(24, 24, 24, 0.08);
-  --text-main: #1a1a15;
-  --text-soft: #4a442d;
-  --ink-strong: #18120b;
-  --panel-main: rgba(255, 249, 214, 0.94);
-  --card-alt: #fff1a8;
-  --accent-main: #ffd43b;
-  --accent-alt: #ff8f00;
-  --accent-pop: #ff5f2e;
-  --accent-cool: #2fc2ff;
-  --header-bg: #fff8cf;
-  --shadow-accent: #18120b;
+  --bg-top: #fffef1;
+  --bg-bottom: #f2e9c8;
+  --grid-line: rgba(14, 14, 14, 0.12);
+  --text-main: #111111;
+  --text-soft: #3b3b3b;
+  --ink-strong: #0d0d0d;
+  --panel-main: #fff8cf;
+  --card-alt: #ffffff;
+  --accent-main: #ffd400;
+  --accent-alt: #ff8a00;
+  --accent-pop: #ff4d4d;
+  --accent-cool: #3aa8ff;
+  --header-bg: rgba(255, 255, 255, 0.88);
+  --shadow-accent: #0d0d0d;
   color-scheme: light;
 }
 
 html[data-theme="dark"] {
-  --bg-top: #1e1700;
-  --bg-bottom: #0b0902;
-  --page-dot: rgba(255, 221, 110, 0.12);
-  --text-main: #fff7cf;
-  --text-soft: #d6cb94;
-  --ink-strong: #ffe37a;
-  --panel-main: rgba(28, 22, 8, 0.94);
-  --card-alt: #2d2207;
-  --accent-main: #ffcf24;
-  --accent-alt: #ff8b2c;
-  --accent-pop: #ff6d3d;
-  --accent-cool: #79d7ff;
-  --header-bg: #120f04;
+  --bg-top: #141414;
+  --bg-bottom: #080808;
+  --grid-line: rgba(255, 255, 255, 0.08);
+  --text-main: #f6f1d6;
+  --text-soft: #d0c6a0;
+  --ink-strong: #f5d10d;
+  --panel-main: #121212;
+  --card-alt: #1d1d1d;
+  --accent-main: #f5d10d;
+  --accent-alt: #ff9234;
+  --accent-pop: #ff5d73;
+  --accent-cool: #59b8ff;
+  --header-bg: rgba(8, 8, 8, 0.88);
   --shadow-accent: #000000;
   color-scheme: dark;
 }
@@ -46,11 +46,11 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.48), transparent 22%),
-    radial-gradient(circle at 85% 15%, rgba(255, 96, 46, 0.16), transparent 16%),
+    linear-gradient(115deg, rgba(255, 212, 0, 0.12) 0%, transparent 28%),
+    linear-gradient(300deg, rgba(58, 168, 255, 0.14) 0%, transparent 30%),
     linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
   color: var(--text-main);
-  font-family: "Trebuchet MS", "Comic Sans MS", "Avenir Next", sans-serif;
+  font-family: "Trebuchet MS", "Arial Black", "Avenir Next", sans-serif;
 }
 
 body::before {
@@ -58,9 +58,10 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: radial-gradient(var(--page-dot) 1.3px, transparent 1.3px);
-  background-size: 18px 18px;
-  opacity: 0.8;
+  background:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
 body::after {
@@ -69,9 +70,8 @@ body::after {
   inset: 0;
   z-index: -3;
   background:
-    radial-gradient(circle at 15% 25%, rgba(255, 95, 46, 0.2), transparent 15%),
-    radial-gradient(circle at 82% 20%, rgba(47, 194, 255, 0.22), transparent 14%),
-    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.18), transparent 18%);
+    linear-gradient(135deg, transparent 0 72%, rgba(255, 77, 77, 0.12) 72% 77%, transparent 77%),
+    linear-gradient(315deg, transparent 0 75%, rgba(58, 168, 255, 0.1) 75% 79%, transparent 79%);
 }
 
 ::selection {
@@ -86,33 +86,44 @@ body::after {
 .glass-card {
   background: linear-gradient(180deg, var(--panel-main) 0%, var(--card-alt) 100%);
   border: 4px solid var(--ink-strong);
-  border-radius: 30px;
-  box-shadow: 8px 8px 0 var(--shadow-accent);
+  border-radius: 0;
+  box-shadow: 10px 10px 0 var(--shadow-accent);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.glass-card:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 16px 16px 0 var(--shadow-accent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel-main) 90%, var(--accent-main) 10%) 0%, color-mix(in srgb, var(--card-alt) 88%, white 12%) 100%);
 }
 
 .section-kicker {
   @apply inline-flex px-4 py-1 text-xs font-black uppercase tracking-[0.28em];
   background: var(--accent-main);
   border: 3px solid var(--ink-strong);
-  border-radius: 999px;
+  border-radius: 0;
   box-shadow: 4px 4px 0 var(--shadow-accent);
   color: var(--ink-strong);
 }
 
 .section-title {
-  font-family: var(--font-display), cursive;
-  @apply text-4xl font-medium sm:text-5xl;
+  font-family: "Arial Black", "Trebuchet MS", sans-serif;
+  @apply text-4xl font-black uppercase sm:text-5xl;
   color: var(--text-main);
-  letter-spacing: 0.02em;
-  text-shadow: 2px 2px 0 var(--accent-main);
+  letter-spacing: 0.05em;
+  line-height: 0.95;
+  text-shadow: 4px 4px 0 var(--accent-main);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-pop) 0%, var(--accent-alt) 36%, var(--accent-main) 72%, var(--accent-cool) 100%);
+  background: linear-gradient(135deg, var(--accent-pop) 0%, var(--accent-alt) 32%, var(--accent-main) 68%, var(--accent-cool) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(3px 3px 0 rgba(24, 18, 11, 0.18));
+  filter: drop-shadow(4px 4px 0 rgba(13, 13, 13, 0.18));
 }
 
 .soft-text {
@@ -121,50 +132,56 @@ body::after {
 }
 
 .comic-button {
-  @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-black transition;
+  @apply inline-flex items-center gap-2 px-6 py-3 font-black uppercase tracking-[0.14em] transition;
   background: var(--accent-main);
   border: 4px solid var(--ink-strong);
   color: var(--ink-strong);
-  box-shadow: 5px 5px 0 var(--shadow-accent);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--shadow-accent);
 }
 
 .comic-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 7px 7px 0 var(--shadow-accent);
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--shadow-accent);
 }
 
 .comic-button-outline {
-  @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-black transition;
+  @apply inline-flex items-center gap-2 px-6 py-3 font-black uppercase tracking-[0.14em] transition;
   background: var(--panel-main);
   border: 4px solid var(--ink-strong);
   color: var(--text-main);
-  box-shadow: 5px 5px 0 var(--shadow-accent);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--shadow-accent);
 }
 
 .comic-button-outline:hover {
-  transform: translateY(-3px);
-  background: var(--accent-cool);
-  color: var(--ink-strong);
+  transform: translate(-3px, -3px);
+  background: var(--accent-pop);
+  color: #fff8ef;
+  box-shadow: 10px 10px 0 var(--shadow-accent);
 }
 
 .comic-icon-button {
-  @apply inline-flex h-11 w-11 items-center justify-center rounded-full transition;
+  @apply inline-flex h-11 w-11 items-center justify-center transition;
   background: var(--panel-main);
   border: 3px solid var(--ink-strong);
   color: var(--text-main);
-  box-shadow: 4px 4px 0 var(--shadow-accent);
+  border-radius: 0;
+  box-shadow: 5px 5px 0 var(--shadow-accent);
 }
 
 .comic-icon-button:hover {
-  transform: translateY(-3px) rotate(-6deg);
+  transform: translate(-3px, -3px);
   background: var(--accent-main);
 }
 
 .comic-input {
-  @apply rounded-[24px] px-4 py-3 outline-none transition;
+  @apply px-4 py-3 outline-none transition;
   border: 3px solid var(--ink-strong);
-  background: rgba(255, 255, 255, 0.3);
+  background: color-mix(in srgb, var(--card-alt) 84%, transparent);
   color: var(--text-main);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--shadow-accent) 85%, transparent);
 }
 
 .comic-input::placeholder {
@@ -172,27 +189,32 @@ body::after {
 }
 
 .comic-input:focus {
-  background: rgba(255, 255, 255, 0.48);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-cool) 32%, transparent);
+  background: color-mix(in srgb, var(--panel-main) 96%, transparent);
+  transform: translate(-2px, -2px);
+  box-shadow:
+    8px 8px 0 color-mix(in srgb, var(--shadow-accent) 88%, transparent),
+    0 0 0 4px color-mix(in srgb, var(--accent-cool) 22%, transparent);
 }
 
 .comic-toggle {
-  @apply inline-flex items-center gap-2 rounded-full px-3 py-2 font-black transition;
+  @apply inline-flex items-center gap-2 px-3 py-2 font-black uppercase transition;
   border: 4px solid var(--ink-strong);
   background: var(--panel-main);
   color: var(--text-main);
-  box-shadow: 5px 5px 0 var(--shadow-accent);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--shadow-accent);
 }
 
 .comic-toggle:hover {
-  transform: translateY(-2px) rotate(-2deg);
+  transform: translate(-2px, -2px);
 }
 
 .comic-toggle__icon {
-  @apply inline-flex h-8 w-8 items-center justify-center rounded-full text-base;
+  @apply inline-flex h-8 w-8 items-center justify-center text-base;
   background: var(--accent-main);
   color: var(--ink-strong);
   border: 2px solid var(--ink-strong);
+  border-radius: 0;
 }
 
 .comic-toggle__label {
@@ -201,16 +223,26 @@ body::after {
 
 [data-aos] {
   pointer-events: auto;
+  transition-property: opacity, transform;
 }
 
-[data-aos^="fade"] {
-  transform: none !important;
+[data-aos="fade-up"],
+[data-aos="fade-down"] {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-[data-aos^="fade"]:not(.aos-animate) {
+[data-aos="fade-up"]:not(.aos-animate) {
   opacity: 0;
+  transform: translate3d(0, 18px, 0);
 }
 
-[data-aos^="fade"].aos-animate {
+[data-aos="fade-down"]:not(.aos-animate) {
+  opacity: 0;
+  transform: translate3d(0, -18px, 0);
+}
+
+[data-aos="fade-up"].aos-animate,
+[data-aos="fade-down"].aos-animate {
   opacity: 1;
+  transform: translate3d(0, 0, 0);
 }

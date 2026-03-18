@@ -69,9 +69,10 @@ export default function HomePage() {
       <SiteHeader />
 
       <section id="hero" className="section-shell relative overflow-hidden py-20 sm:py-24 lg:py-28">
-        <div className="absolute inset-x-0 top-10 -z-10 h-72 rounded-full bg-[color:var(--accent-cool)]/20 blur-3xl" />
+        <div className="absolute left-0 top-10 -z-10 h-48 w-48 bg-[color:var(--accent-main)]/35" />
+        <div className="absolute right-10 top-28 -z-10 h-56 w-56 bg-[color:var(--accent-cool)]/20" />
         <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="space-y-8" data-aos="fade">
+          <div className="space-y-8" data-aos="fade-up">
             <span className="section-kicker">{heroContent.badge}</span>
             <div className="space-y-5">
               <p className="text-lg text-[color:var(--text-soft)] sm:text-xl">{heroContent.greeting}</p>
@@ -105,22 +106,22 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-md" data-aos="fade">
+          <div className="relative mx-auto w-full max-w-md" data-aos="fade-down">
             <div className="glass-card relative overflow-hidden p-4">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.6),transparent_38%),radial-gradient(circle_at_25%_20%,rgba(47,194,255,0.16),transparent_26%)]" />
-              <div className="relative rounded-[24px] border-4 border-[color:var(--ink-strong)] bg-white/20 p-4">
-                <div className="mb-4 flex items-center justify-between rounded-2xl border-4 border-[color:var(--ink-strong)] bg-[color:var(--card-alt)] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[color:var(--text-soft)]">
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,212,0,0.24)_0%,transparent_48%,rgba(58,168,255,0.18)_100%)]" />
+              <div className="relative border-4 border-[color:var(--ink-strong)] bg-white/20 p-4">
+                <div className="mb-4 flex items-center justify-between border-4 border-[color:var(--ink-strong)] bg-[color:var(--card-alt)] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[color:var(--text-soft)]">
                   <span>frontend-developer.tsx</span>
-                  <span className="rounded-full bg-[color:var(--accent-main)] px-3 py-1 text-[color:var(--ink-strong)]">available</span>
+                  <span className="border-2 border-[color:var(--ink-strong)] bg-[color:var(--accent-main)] px-3 py-1 text-[color:var(--ink-strong)]">available</span>
                 </div>
-                <div className="relative overflow-hidden rounded-[28px] border-4 border-[color:var(--ink-strong)] bg-[linear-gradient(135deg,var(--accent-pop)_0%,var(--accent-alt)_38%,var(--accent-main)_72%,var(--accent-cool)_100%)] p-1">
-                  <div className="rounded-[24px] bg-[color:var(--card-alt)] p-3">
+                <div className="relative overflow-hidden border-4 border-[color:var(--ink-strong)] bg-[linear-gradient(135deg,var(--accent-pop)_0%,var(--accent-alt)_38%,var(--accent-main)_72%,var(--accent-cool)_100%)] p-1">
+                  <div className="bg-[color:var(--card-alt)] p-3">
                     <Image
                       src="/assets/images/portrait.png"
                       alt="Shubham Maurya portrait"
                       width={900}
                       height={1100}
-                      className="h-auto w-full rounded-[20px] object-cover"
+                      className="h-auto w-full object-cover"
                       priority
                     />
                   </div>
@@ -138,7 +139,7 @@ export default function HomePage() {
           description="The parts of creative work that keep me curious and energized."
           align="center"
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-3" data-aos="fade">
+        <div className="mt-12 grid gap-6 md:grid-cols-3" data-aos="fade-up">
           {interests.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -146,7 +147,7 @@ export default function HomePage() {
                 key={item.title}
                 className="glass-card p-8"
               >
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border-4 border-[color:var(--ink-strong)] bg-[linear-gradient(135deg,var(--accent-pop)_0%,var(--accent-main)_75%)] text-2xl text-[color:var(--ink-strong)] shadow-[4px_4px_0_var(--shadow-accent)]">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center border-4 border-[color:var(--ink-strong)] bg-[linear-gradient(135deg,var(--accent-pop)_0%,var(--accent-main)_75%)] text-2xl text-[color:var(--ink-strong)] shadow-[6px_6px_0_var(--shadow-accent)]">
                   <Icon />
                 </div>
                 <h3 className="text-2xl font-black text-[color:var(--text-main)]">{item.title}</h3>
@@ -158,17 +159,17 @@ export default function HomePage() {
       </section>
 
       <section id="about" className="section-shell py-16 sm:py-20">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]" data-aos="fade">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]" data-aos="fade-down">
           <div className="relative">
-            <div className="absolute -left-5 -top-5 h-40 w-40 rounded-[32px] border-4 border-[color:var(--accent-pop)]/70" />
-            <div className="absolute -bottom-5 -right-5 h-40 w-40 rounded-[32px] border-4 border-[color:var(--accent-cool)]/70" />
+            <div className="absolute -left-5 -top-5 h-40 w-40 border-4 border-[color:var(--accent-pop)]/70" />
+            <div className="absolute -bottom-5 -right-5 h-40 w-40 border-4 border-[color:var(--accent-cool)]/70" />
             <div className="glass-card relative overflow-hidden p-4">
               <Image
                 src="/assets/images/portrait-2.webp"
                 alt="About Shubham Maurya"
                 width={800}
                 height={900}
-                className="h-auto w-full rounded-[24px] object-cover"
+                className="h-auto w-full object-cover"
               />
             </div>
           </div>
@@ -205,7 +206,7 @@ export default function HomePage() {
           description="Technologies that are part of my current stack and daily workflow."
           align="center"
         />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6" data-aos="fade">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6" data-aos="fade-up">
           {skills.map((skill, index) => (
             <div
               key={skill.name}
@@ -227,7 +228,7 @@ export default function HomePage() {
           description="A few of the tools that support my design, coding, and shipping workflow."
           align="center"
         />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6" data-aos="fade">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6" data-aos="fade-down">
           {tools.map((tool, index) => (
             <div
               key={tool.name}
@@ -249,7 +250,7 @@ export default function HomePage() {
           description="A few portfolio highlights that reflect client work, product thinking, and full-stack execution."
           align="center"
         />
-        <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-3" data-aos="fade">
+        <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-3" data-aos="fade-up">
           {projects.map((project, index) => (
             <article
               key={project.name}
@@ -272,7 +273,7 @@ export default function HomePage() {
                     alt={`${project.name} icon`}
                     width={56}
                     height={56}
-                    className="h-14 w-14 rounded-2xl border-4 border-[color:var(--ink-strong)] object-cover"
+                    className="h-14 w-14 border-4 border-[color:var(--ink-strong)] object-cover"
                   />
                   <div className="space-y-2">
                     <h3 className="text-2xl font-black text-[color:var(--text-main)]">{project.name}</h3>
@@ -302,7 +303,7 @@ export default function HomePage() {
           description="Feedback from collaborators, friends, and people who have worked with me."
           align="center"
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2" data-aos="fade">
+        <div className="mt-12 grid gap-6 md:grid-cols-2" data-aos="fade-down">
           {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.name}
@@ -315,7 +316,7 @@ export default function HomePage() {
                   alt={testimonial.name}
                   width={72}
                   height={72}
-                  className="h-16 w-16 rounded-full border-4 border-[color:var(--ink-strong)] object-cover"
+                  className="h-16 w-16 border-4 border-[color:var(--ink-strong)] object-cover"
                 />
                 <div>
                   <h3 className="text-lg font-black text-[color:var(--text-main)]">{testimonial.name}</h3>
@@ -328,7 +329,7 @@ export default function HomePage() {
       </section>
 
       <section id="contact" className="section-shell py-16 sm:py-20">
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]" data-aos="fade">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]" data-aos="fade-up">
           <div className="space-y-6">
             <SectionHeading
               kicker="What's next"
@@ -340,7 +341,7 @@ export default function HomePage() {
                 const Icon = item.icon;
                 return (
                   <div key={item.title} className="glass-card flex items-start gap-4 p-5">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border-4 border-[color:var(--ink-strong)] bg-[color:var(--accent-cool)] text-xl text-[color:var(--ink-strong)] shadow-[3px_3px_0_var(--shadow-accent)]">
+                    <div className="inline-flex h-12 w-12 items-center justify-center border-4 border-[color:var(--ink-strong)] bg-[color:var(--accent-cool)] text-xl text-[color:var(--ink-strong)] shadow-[6px_6px_0_var(--shadow-accent)]">
                       <Icon />
                     </div>
                     <div>

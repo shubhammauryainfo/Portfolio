@@ -5,15 +5,16 @@ import AOS from "aos";
 
 export function AosProvider() {
   useEffect(() => {
-    if (window.innerWidth < 768) {
-      return;
-    }
+    const aos = AOS as unknown as {
+      init: (options: Record<string, unknown>) => void;
+    };
 
-    AOS.init({
-      duration: 500,
-      easing: "ease-out",
-      once: true,
-      offset: 24
+    aos.init({
+      duration: 650,
+      easing: "ease-out-cubic",
+      once: false,
+      mirror: true,
+      offset: 48
     });
   }, []);
 
