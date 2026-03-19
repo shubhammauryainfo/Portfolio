@@ -21,10 +21,10 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b-4 border-[color:var(--ink-strong)] bg-[color:var(--header-bg)]/95 backdrop-blur-md">
-      <div className="section-shell flex items-center justify-between py-4">
+      <div className="section-shell flex items-center justify-between gap-3 py-3 sm:py-4">
         <a
           href="#hero"
-          className="text-xl font-black uppercase text-[color:var(--text-main)] drop-shadow-[4px_4px_0_var(--accent-main)] sm:text-2xl"
+          className="max-w-[calc(100%-4rem)] text-base font-black uppercase leading-tight text-[color:var(--text-main)] drop-shadow-[3px_3px_0_var(--accent-main)] sm:text-2xl sm:drop-shadow-[4px_4px_0_var(--accent-main)]"
           style={{ fontFamily: "var(--font-logo)" }}
         >
           {"<"}Shubham Maurya {"/>"}
@@ -34,7 +34,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="border-4 border-transparent px-4 py-2 font-black uppercase tracking-[0.18em] text-[color:var(--text-soft)] transition hover:border-[color:var(--ink-strong)] hover:bg-[color:var(--accent-main)] hover:text-[color:var(--ink-strong)] hover:shadow-[6px_6px_0_var(--shadow-accent)]"
+              className="border-4 border-transparent px-4 py-2 font-black uppercase tracking-[0.18em] text-[color:var(--text-soft)] transition hover:border-[color:var(--accent-border)] hover:bg-[color:var(--accent-main)] hover:text-[color:var(--accent-ink)] hover:shadow-[6px_6px_0_var(--shadow-accent)]"
             >
               {link.label}
             </a>
@@ -43,7 +43,7 @@ export function SiteHeader() {
         <button
           type="button"
           aria-label="Toggle navigation"
-          className="inline-flex h-11 w-11 items-center justify-center border-4 border-[color:var(--ink-strong)] bg-[color:var(--panel-main)] text-[color:var(--text-main)] shadow-[6px_6px_0_var(--shadow-accent)] md:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center border-4 border-[color:var(--ink-strong)] bg-[color:var(--panel-main)] text-[color:var(--text-main)] shadow-[5px_5px_0_var(--shadow-accent)] md:hidden sm:h-11 sm:w-11 sm:shadow-[6px_6px_0_var(--shadow-accent)]"
           onClick={() => setOpen((value) => !value)}
         >
           {open ? <FiX /> : <FiMenu />}

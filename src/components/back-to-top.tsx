@@ -22,7 +22,7 @@ export function BackToTop() {
       type="button"
       aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-6 right-6 z-50 inline-flex h-12 w-12 items-center justify-center border-4 border-[color:var(--ink-strong)] bg-[color:var(--accent-main)] text-lg text-[color:var(--ink-strong)] shadow-[6px_6px_0_var(--shadow-accent)] transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--shadow-accent)]"
+      className="fixed bottom-6 right-6 z-50 inline-flex h-12 w-12 items-center justify-center border-4 border-[color:var(--accent-border)] bg-[color:var(--accent-main)] text-lg text-[color:var(--accent-ink)] shadow-[6px_6px_0_var(--shadow-accent)] transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--shadow-accent)]"
     >
       <FiArrowUpRight className="-rotate-45" />
     </button>

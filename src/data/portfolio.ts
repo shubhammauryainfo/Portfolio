@@ -69,7 +69,6 @@ type AboutContent = {
 };
 
 type ContactForm = {
-  action: string;
   subject: string;
 };
 
@@ -149,31 +148,13 @@ export const tools: ImageCard[] = [
 
 export const projects: Project[] = [
   {
-    name: "Educate Tutorials",
-    href: "https://et.fast-page.org/",
-    stack: "HTML | CSS | Bootstrap | JavaScript | PHP | SQL",
+    name: "FleekFiles",
+    href: "https://fleek-files.vercel.app/",
+    stack: "Next.js 16 | React 19 | TypeScript | NextAuth.js | MongoDB",
     description:
-      "A client website with multiple sections and a flexible admin panel built for an education business.",
-    image: "/assets/images/projects/educate.webp",
-    icon: "/assets/images/projects/et.png"
-  },
-  {
-    name: "Shree Academy",
-    href: "https://shreeacademy-project.free.nf/",
-    stack: "HTML | CSS | Bootstrap | PHP | SQL",
-    description:
-      "An educational website template with a clean admin panel and a structure designed for content-heavy pages.",
-    image: "/assets/images/projects/shree.webp",
-    icon: "/assets/images/projects/sa.png"
-  },
-  {
-    name: "Kamal Enterprises",
-    href: "https://kamalenterprises.ltd",
-    stack: "HTML | CSS | JavaScript | PHP",
-    description:
-      "A business website for a client with focused service presentation and a simple multi-section layout.",
-    image: "/assets/images/projects/kamal-e.webp",
-    icon: "/assets/images/projects/ke.png"
+      "A secure file management and sharing platform with authentication, role-based access control, metadata handling, and a dashboard-first user workflow built as a Semester 5 full-stack project.",
+    image: "/assets/images/projects/ff.png",
+    icon: "/assets/images/projects/ff-logo.png"
   },
   {
     name: "Resoo Build",
@@ -201,6 +182,33 @@ export const projects: Project[] = [
       "A public-facing website designed to highlight trust initiatives, impact stories, and organizational work.",
     image: "/assets/images/projects/vaaart.png",
     icon: "/assets/images/projects/vaaart.png"
+  },
+  {
+    name: "Kamal Enterprises",
+    href: "https://kamalenterprises.ltd",
+    stack: "HTML | CSS | JavaScript | PHP",
+    description:
+      "A business website for a client with focused service presentation and a simple multi-section layout.",
+    image: "/assets/images/projects/kamal-e.webp",
+    icon: "/assets/images/projects/ke.png"
+  },
+  {
+    name: "Shree Academy",
+    href: "https://shreeacademy-project.free.nf/",
+    stack: "HTML | CSS | Bootstrap | PHP | SQL",
+    description:
+      "An educational website template with a clean admin panel and a structure designed for content-heavy pages.",
+    image: "/assets/images/projects/shree.webp",
+    icon: "/assets/images/projects/sa.png"
+  },
+  {
+    name: "Educate Tutorials",
+    href: "https://et.fast-page.org/",
+    stack: "HTML | CSS | Bootstrap | JavaScript | PHP | SQL",
+    description:
+      "A client website with multiple sections and a flexible admin panel built for an education business.",
+    image: "/assets/images/projects/educate.webp",
+    icon: "/assets/images/projects/et.png"
   }
 ];
 
@@ -277,7 +285,6 @@ export const aboutContent: AboutContent = {
 };
 
 export const contactForm: ContactForm = {
-  action: "https://formsubmit.co/shubhammaurya8828@gmail.com",
   subject: "New submission from Shubham Maurya portfolio"
 };
 
