@@ -93,7 +93,7 @@ function buildUserEmail(payload: Required<ContactPayload>) {
             <p style="margin:0;font-size:14px;line-height:1.8;">
               Shubham Maurya<br />
               Frontend Developer<br />
-              Portfolio: <a href="https://shubhammaurya.me" style="color:#111111;font-weight:700;">shubhammaurya.info</a>
+              Portfolio: <a href="https://shubhammaurya.me" style="color:#111111;font-weight:700;">shubhammaurya.me</a>
             </p>
           </div>
         </div>
