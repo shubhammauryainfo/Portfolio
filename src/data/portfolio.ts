@@ -148,6 +148,16 @@ export const tools: ImageCard[] = [
 
 export const projects: Project[] = [
   {
+    name: "FlickDesk",
+    href: "https://flickdesk.tech",
+    stack:
+      "Next.js | React | TypeScript | NextAuth.js | MongoDB | Redis | Azure Blob | Node.js Workers",
+    description:
+      "A self-hosted deployment platform with GitHub OAuth authentication, worker-based build pipeline, Redis-powered job queue, artifact storage, and a subdomain-based preview system, built as a Semester 6 full-stack + system design project.",
+    image: "/assets/images/projects/flickdesk.png",
+    icon: "/assets/images/projects/fd.png"
+  },
+  {
     name: "FleekFiles",
     href: "https://fleek-files.vercel.app/",
     stack: "Next.js 16 | React 19 | TypeScript | NextAuth.js | MongoDB",
