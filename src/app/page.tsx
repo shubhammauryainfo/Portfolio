@@ -109,7 +109,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,212,0,0.24)_0%,transparent_48%,rgba(58,168,255,0.18)_100%)]" />
               <div className="relative border-4 border-[color:var(--ink-strong)] bg-white/20 p-3 sm:p-4">
                 <div className="mb-4 flex flex-col items-start gap-2 border-4 border-[color:var(--ink-strong)] bg-[color:var(--card-alt)] px-3 py-3 text-xs font-bold uppercase tracking-[0.08em] text-[color:var(--text-soft)] sm:flex-row sm:items-center sm:justify-between sm:px-4 sm:text-sm sm:tracking-[0.12em]">
-                  <span className="break-all sm:break-normal">frontend-developer.tsx</span>
+                  <span className="break-all sm:break-normal">Shubham-Maurya.tsx</span>
                   <span className="border-2 border-[color:var(--accent-border)] bg-[color:var(--accent-main)] px-3 py-1 text-[color:var(--accent-ink)]">available</span>
                 </div>
                 <div className="relative overflow-hidden border-4 border-[color:var(--ink-strong)] bg-[linear-gradient(135deg,var(--accent-pop)_0%,var(--accent-alt)_38%,var(--accent-main)_72%,var(--accent-cool)_100%)] p-1">
@@ -163,7 +163,7 @@ export default function HomePage() {
             <div className="absolute -bottom-5 -right-5 hidden h-40 w-40 border-4 border-[color:var(--accent-cool)]/70 sm:block" />
             <div className="glass-card relative overflow-hidden p-3 sm:p-4">
               <Image
-                src="/assets/images/portrait-2.webp"
+                src="/assets/images/portrait2.png"
                 alt="About Shubham Maurya"
                 width={800}
                 height={900}

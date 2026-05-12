@@ -289,7 +289,7 @@ export const aboutContent: AboutContent = {
     "I also love trying new ideas beyond code, including building businesses like Nexbytes Technologies."
   ],
   cta: {
-    href: "https://nexbytes.rf.gd/",
+    href: "https://nexbytes.in/",
     label: "Visit Nexbytes"
   }
 };
