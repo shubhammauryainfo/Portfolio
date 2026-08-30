@@ -1,95 +1,81 @@
-"use client";
-
-import Image from "next/image";
 import { useEffect } from "react";
-import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
-import type { MemoryPhoto } from "./types";
-import styles from "./rakhi.module.css";
+import Image from "next/image";
+import { Memory } from "./data";
 
 type LightboxProps = {
-  photos: MemoryPhoto[];
-  selectedIndex: number;
-  onChange: (index: number) => void;
+  memory: Memory;
   onClose: () => void;
+  onNext: () => void;
+  onPrev: () => void;
 };
 
-export function Lightbox({ photos, selectedIndex, onChange, onClose }: LightboxProps) {
-  const photo = photos[selectedIndex];
-
+export default function Lightbox({ memory, onClose, onNext, onPrev }: LightboxProps) {
+  
   useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-
-      if (event.key === "ArrowRight") {
-        onChange((selectedIndex + 1) % photos.length);
-      }
-
-      if (event.key === "ArrowLeft") {
-        onChange((selectedIndex - 1 + photos.length) % photos.length);
-      }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onNext();
+      if (e.key === "ArrowLeft") onPrev();
     };
-
-    const previousOverflow = document.body.style.overflow;
+    
     document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKeyDown);
-
+    window.addEventListener("keydown", handleKeyDown);
+    
     return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "auto";
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [onChange, onClose, photos.length, selectedIndex]);
+  }, [onClose, onNext, onPrev]);
 
   return (
-    <div
-      className={styles.lightbox}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Memory photo viewer"
-      onMouseDown={(event) => {
-        if (event.target === event.currentTarget) {
-          onClose();
-        }
-      }}
+    <div 
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0D0D0D]/95 backdrop-blur-sm p-4 sm:p-8"
+      onClick={onClose}
     >
-      <button type="button" className={styles.closeButton} onClick={onClose} aria-label="Close photo viewer">
-        <FiX />
-      </button>
-
-      <button
-        type="button"
-        className={`${styles.lightboxButton} ${styles.lightboxPrevious}`}
-        onClick={() => onChange((selectedIndex - 1 + photos.length) % photos.length)}
-        aria-label="Previous photo"
+      <button 
+        onClick={onClose}
+        className="absolute top-6 right-6 text-white text-sm tracking-widest uppercase hover:text-[#C08081] transition z-50"
+        aria-label="Close lightbox"
       >
-        <FiChevronLeft />
+        Close
       </button>
 
-      <figure className={styles.lightboxFigure}>
-        <Image
-          src={photo.src}
-          alt={photo.alt}
-          width={1400}
-          height={1600}
-          sizes="96vw"
-          className={styles.lightboxImage}
-          priority
-        />
-        <figcaption>
-          <strong>{photo.title}</strong>
-          <span>{photo.description}</span>
-        </figcaption>
-      </figure>
-
-      <button
-        type="button"
-        className={`${styles.lightboxButton} ${styles.lightboxNext}`}
-        onClick={() => onChange((selectedIndex + 1) % photos.length)}
-        aria-label="Next photo"
+      <div 
+        className="relative w-full max-w-5xl h-full flex flex-col items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
       >
-        <FiChevronRight />
-      </button>
+        <div className="relative w-full h-[70vh] mb-6">
+          <Image 
+            src={memory.src}
+            alt={memory.alt}
+            fill
+            className="object-contain"
+            sizes="100vw"
+            quality={90}
+          />
+        </div>
+        
+        <div className="text-center space-y-2">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#C08081]">{memory.title}</p>
+          <p className="font-serif text-lg text-[#FDFBF7] italic">{memory.caption}</p>
+        </div>
+
+        <button 
+          onClick={onPrev}
+          className="absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 p-4 text-white hover:text-[#C08081] transition"
+          aria-label="Previous image"
+        >
+          ←
+        </button>
+
+        <button 
+          onClick={onNext}
+          className="absolute right-0 sm:right-4 top-1/2 -translate-y-1/2 p-4 text-white hover:text-[#C08081] transition"
+          aria-label="Next image"
+        >
+          →
+        </button>
+      </div>
     </div>
   );
 }
